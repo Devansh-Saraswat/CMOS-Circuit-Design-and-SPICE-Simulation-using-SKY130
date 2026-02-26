@@ -122,7 +122,8 @@ The NMOS is a **four-terminal** device. Its cross-sectional structure (from bott
 - Thin gate oxide grown on the substrate between source and drain
 - Polysilicon (or metal) gate electrode on top of the oxide (terminal **G**)
 
-![NMOS Cross-Section](https://private-user-images.githubusercontent.com/261861039/551139383-ae7298a9-9096-41dc-8ace-e13aaa7b9e25.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzIwNjIxMjQsIm5iZiI6MTc3MjA2MTgyNCwicGF0aCI6Ii8yNjE4NjEwMzkvNTUxMTM5MzgzLWFlNzI5OGE5LTkwOTYtNDFkYy04YWNlLWUxM2FhYTdiOWUyNS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMjI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDIyNVQyMzIzNDRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1lOTkzYzQwYjVmYjg5YWM1ZTNmYTk5ZjRhMWE5NTNjM2ZlODZhNmFkN2M2MzEzMTNlN2IwODY1MzZmOGQ0NTNkJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.u_9EHw1bksF-XXCMGPLwoSua0XHfskj_I-LxLaGsBjE)
+<img width="509" height="464" alt="image" src="https://github.com/user-attachments/assets/bfb6bfa6-5f7d-44f6-ae5b-b44b0eb53a7c" />
+
 
 The ratio of channel **W**idth to **L**ength (W/L) is the single most important sizing parameter — it sets drive current, switching speed, and input capacitance.
 
@@ -134,11 +135,12 @@ The ratio of channel **W**idth to **L**ength (W/L) is the single most important 
 
 **Ramping up Vgs:** The positive gate voltage attracts electrons from the n+ regions toward the surface under the gate oxide, gradually creating a thin electron-rich layer.
 
-![Effect of Increasing Vgs](https://private-user-images.githubusercontent.com/261861039/551142878-d76c1ebc-d734-4a2c-b6d9-db48ea69f849.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzIwNjIxMjQsIm5iZiI6MTc3MjA2MTgyNCwicGF0aCI6Ii8yNjE4NjEwMzkvNTUxMTQyODc4LWQ3NmMxZWJjLWQ3MzQtNGEyYy1iNmQ5LWRiNDhlYTY5Zjg0OS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMjI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDIyNVQyMzIzNDRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT00MjU2NTQxNDJiNjFkMGU0NzE1MjJkMzg3MGU2NzFmMzI4MTBlMGEyNWZmYzViYmEyODU5YmE3MmViYmVmNzA4JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.2yaWuwDX-P3nrxayic6xHpc978ujN_04PBBIaR4GoSw)
+<img width="815" height="403" alt="image" src="https://github.com/user-attachments/assets/51063569-b24e-4826-b684-751dff081e31" />
 
 **Strong Inversion:** Once Vgs crosses a critical level, the surface beneath the gate flips from p-type to n-type — forming a complete conducting channel between source and drain. This transition is called **strong inversion**, and the gate voltage at which it occurs is the **Threshold Voltage (Vt)**.
 
-![Channel Formation at Strong Inversion](https://private-user-images.githubusercontent.com/261861039/551156645-85ae483b-047e-44d9-b0e5-321dc044f7cc.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzIwNjIxMjQsIm5iZiI6MTc3MjA2MTgyNCwicGF0aCI6Ii8yNjE4NjEwMzkvNTUxMTU2NjQ1LTg1YWU0ODNiLTA0N2UtNDRkOS1iMGU1LTMyMWRjMDQ0ZjdjYy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMjI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDIyNVQyMzIzNDRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1lYTEzMGNlMjYwZjJkODc1Yjk5NGI0NDJkYmUxMjdmNjRmMzExNGIxODhlMzQ0MjM3ZTcwNDhjZDIxMmEyMWMzJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.t-HszDQaE7P894e_qreDJ7V9SjndDL6PcTB6hmXVIA8)
+<img width="788" height="431" alt="image" src="https://github.com/user-attachments/assets/c467f1e4-a1d8-4eac-9a7e-0b86b1714e57" />
+
 
 Beyond Vt, the depletion layer stops growing. Further increases in Vgs only pull more electrons into the channel, increasing its conductivity proportionally. The Vt equation is:
 
@@ -164,17 +166,19 @@ Cox = εox / tox                 [gate oxide capacitance per unit area]
 
 The body terminal is not always tied to source. Applying a **source-to-body voltage (Vsb > 0)** widens the depletion region beneath the channel, as shown below:
 
-![Depletion Region with Body Bias](https://private-user-images.githubusercontent.com/261861039/551164619-5c67337a-9a60-4b19-8bdf-65f6ac4c241c.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzIwNjIxMjQsIm5iZiI6MTc3MjA2MTgyNCwicGF0aCI6Ii8yNjE4NjEwMzkvNTUxMTY0NjE5LTVjNjczMzdhLTlhNjAtNGIxOS04YmRmLTY1ZjZhYzRjMjQxYy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMjI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDIyNVQyMzIzNDRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1hYThmZTY4YWI2Zjk3NzQ1ZTZhM2M2MGY0YzcxZmY2YzE3MWFlNDFkNWI5OGUxMjQyMzUwZDA4YzNmYjkyMzhmJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.4PfML1OJ4EY0w2tAnQWnKnfvevMTMiKWtqu5DSPjDGE)
+<img width="1207" height="605" alt="image" src="https://github.com/user-attachments/assets/21fb4e1e-401b-4d1c-a70f-ffc489491499" />
+
 
 The wider depletion region pulls electrons away from the channel-forming surface, so **more gate voltage is needed** to achieve inversion. In other words, Vt increases with Vsb — this is the **body effect** (also called the back-gate effect).
 
-![Threshold Shift Due to Body Bias](https://private-user-images.githubusercontent.com/261861039/551336288-3932925f-0ae3-4710-b48d-48f3ca2b74ce.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzIwNjIxMjQsIm5iZiI6MTc3MjA2MTgyNCwicGF0aCI6Ii8yNjE4NjEwMzkvNTUxMzM2Mjg4LTM5MzI5MjVmLTBhZTMtNDcxMC1iNDhkLTQ4ZjNjYTJiNzRjZS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMjI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDIyNVQyMzIzNDRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT04MDhjNTRhYWVlNzQxZDAwMDVkMjU2ODcyMThjYzZhNjNiYmMyNjBhM2E5MzRhZDVkZWMyZGE1MGZkZWQxYjMzJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.8kgGbpA-TRa9mRD-rYTqXM1TAiXbtOW5isB7UNMybs8)
+<img width="1300" height="593" alt="image" src="https://github.com/user-attachments/assets/13734e79-d8cd-4127-8584-d56ab43ef500" />
 
-![Threshold Voltage Equation with Vsb](https://private-user-images.githubusercontent.com/261861039/551337452-39fc86c7-b6cb-4913-81c7-b2e8931d0f08.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzIwNjIxMjQsIm5iZiI6MTc3MjA2MTgyNCwicGF0aCI6Ii8yNjE4NjEwMzkvNTUxMzM3NDUyLTM5ZmM4NmM3LWI2Y2ItNDkxMy04MWM3LWIyZTg5MzFkMGYwOC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMjI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDIyNVQyMzIzNDRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1mOWY5MjA3YWE1NmFmMzgwMDhlYjQ2MWFkOWUxZmU0ZmRiMzU5ODg2NmU4YjI2YmY5N2JlMTY5ZWFiNjljMTVmJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.gmD9VeY92dEX-86fy2x53GK01wp1I39jUtseqtV37d8)
+
+<img width="1340" height="652" alt="image" src="https://github.com/user-attachments/assets/53bd1039-e243-4070-a53b-e0544494ae93" />
+
 
 The body-effect coefficient γ and Fermi potential φf are not design choices — they come from foundry characterization. SKY130's SPICE model files encode these values precisely.
 
-![Foundry-Supplied SPICE Parameters](https://private-user-images.githubusercontent.com/261861039/551339632-f294e8af-d5e9-4937-9a81-0286b7a673c5.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzIwNjIxMjQsIm5iZiI6MTc3MjA2MTgyNCwicGF0aCI6Ii8yNjE4NjEwMzkvNTUxMzM5NjMyLWYyOTRlOGFmLWQ1ZTktNDkzNy05YTgxLTAyODZiN2E2NzNjNS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMjI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDIyNVQyMzIzNDRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1lNDJlYzkzMDIyNGZmZWM1ZDZiZTkxYmUwM2FiOTE5NjI3ODdhN2VlZDFhYmM1N2VmNmE2YzI5MDY3NDczNjQ0JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.Fm_0gQAhn2TTnZUth0QNRjE8_ji1x-StDNoZjXgx61o)
 
 ---
 
@@ -184,19 +188,28 @@ The MOSFET has three primary regions: **cutoff** (OFF), **linear/resistive**, an
 
 In the **linear region** (Vgs > Vt, small Vds), a conducting channel spans the full length from source to drain. As Vgs increases, the channel thickens and its conductance rises.
 
-![MOSFET in Linear Region](https://private-user-images.githubusercontent.com/261861039/551424597-11e7e4f6-9632-4c1e-83b0-548751e68575.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzIwNjIxMjQsIm5iZiI6MTc3MjA2MTgyNCwicGF0aCI6Ii8yNjE4NjEwMzkvNTUxNDI0NTk3LTExZTdlNGY2LTk2MzItNGMxZS04M2IwLTU0ODc1MWU2ODU3NS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMjI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDIyNVQyMzIzNDRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0wOTlhODE5MWZjNzU5MzI0MmI3OTgxMGE3YzJlMzFlNDljMGU2YTc0MTRmODBlODBmNDc4YTAxYWQ0MDZlOGVmJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.bVr_d3f8I7Lf1uijq1ysSMOMv-98EFUrLXudPdmq7qw)
+<img width="676" height="436" alt="image" src="https://github.com/user-attachments/assets/88a494d7-1528-4b2b-9168-e2f569a633ae" />
+
 
 With Vds applied, the channel is no longer uniform — a voltage gradient V(x) builds along its length (x-axis). Using Vgs = 1 V, Vt = 0.45 V, Vds = 0.05 V as an example:
 - At the source end (x=0): effective gate overdrive = Vgs − V(0) = 1.0 V
 - At the drain end (x=L): effective gate overdrive = Vgs − V(L) = 0.95 V
 
+<img width="790" height="573" alt="image" src="https://github.com/user-attachments/assets/7f9a9c92-7ec3-4a26-8c25-abbf3385d0cb" />
+
+
 The local induced charge at any point x is therefore: `Qi(x) = −Cox · (Vgs − V(x) − Vt)`
 
-![Voltage Gradient Along the Channel](https://private-user-images.githubusercontent.com/261861039/551426229-33bbd97c-3bd1-415e-a632-85c6f3c3d70e.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzIwNjIxMjQsIm5iZiI6MTc3MjA2MTgyNCwicGF0aCI6Ii8yNjE4NjEwMzkvNTUxNDI2MjI5LTMzYmJkOTdjLTNiZDEtNDE1ZS1hNjMyLTg1YzZmM2MzZDcwZS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMjI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDIyNVQyMzIzNDRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1jOWE4ODI4NDhlOTU4YWQ5M2NlODc2ZDBlZTY2ODFmNTlmN2M2YzhhMjE3MzAyOWVjNDYyMDBlZGFkMzhiYzM1JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.v316jOzWTBbGiK7-cX5stpmGfR57y6ddx0KFw4lKNEk)
+<img width="432" height="547" alt="image" src="https://github.com/user-attachments/assets/b46abda5-757a-425c-bb76-961115b310a6" />
 
-![Current Equation in Linear Region](https://private-user-images.githubusercontent.com/261861039/551437238-77a3cccc-7699-4145-a0a0-f864fedc6522.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzIwNjIxMjQsIm5iZiI6MTc3MjA2MTgyNCwicGF0aCI6Ii8yNjE4NjEwMzkvNTUxNDM3MjM4LTc3YTNjY2NjLTc2OTktNDE0NS1hMGEwLWY4NjRmZWRjNjUyMi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMjI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDIyNVQyMzIzNDRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT01OTY5Nzk2MTc4ZTFkZTVmM2MzMGU2ZGVjZjdkNmUzNzE3NzVkMmRiZGE3N2M2MzRiNzlmODZhZDhlNjMwZmU0JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.tPm_yxNyGCO4BhaMFLp3tG8MWkh60ErpTtONMWOTFFE)
+
+<img width="449" height="292" alt="image" src="https://github.com/user-attachments/assets/16e84919-7b3b-4dda-a931-4cec25b95e78" />
+
 
 **Operating region boundary:** Vds ≤ (Vgs − Vt) → linear; once Vds crosses this threshold, the device enters saturation.
+
+<img width="525" height="145" alt="image" src="https://github.com/user-attachments/assets/3de351c0-1dc4-48fd-b775-9d41c50c93c7" />
+
 
 ---
 
@@ -214,7 +227,8 @@ Id = µn·Cox·(W/L) · [(Vgs − Vt)·Vds − Vds²/2]
 
 Key groupings: `kn' = µn·Cox` (process transconductance), `kn = kn'·(W/L)` (gain factor).
 
-![Drift Current Formula](https://private-user-images.githubusercontent.com/261861039/551460541-170b037c-2adc-4538-966c-f208cf52ebbd.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzIwNjIxMjQsIm5iZiI6MTc3MjA2MTgyNCwicGF0aCI6Ii8yNjE4NjEwMzkvNTUxNDYwNTQxLTE3MGIwMzdjLTJhZGMtNDUzOC05NjZjLWYyMDhjZjUyZWJiZC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMjI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDIyNVQyMzIzNDRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0wMzc0ODVjYmUwZDVhNmIwYjNmMTM5N2I1MjJkYzFiYzY2MTY4NmQ5YzYyZWQyNGViMTYxZWMzYzcyNDQwMWJlJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.4KmP98Zsr2Xa1AdYXOaeQBs6nt1itQ95ZAI3aQr2G_s)
+<img width="423" height="153" alt="image" src="https://github.com/user-attachments/assets/52519c11-7aef-4a00-a07c-5b631831b0da" />
+
 
 ---
 
@@ -222,11 +236,23 @@ Key groupings: `kn' = µn·Cox` (process transconductance), `kn = kn'·(W/L)` (g
 
 As Vds increases toward (Vgs − Vt), the overdrive at the drain end approaches zero. At exactly Vgs − Vds = Vt, the channel "pinches off" at the drain. Beyond this point, the channel adopts a triangular shape — still connected at the source, absent at the drain.
 
+<img width="1260" height="633" alt="image" src="https://github.com/user-attachments/assets/fb5242cb-3849-4524-a02b-8493c36ad1b7" />
+
+
 The current no longer grows with Vds; it saturates at:
 
+<img width="387" height="104" alt="image" src="https://github.com/user-attachments/assets/a53ebf83-1097-4e59-8595-dcf2b1cdc34a" />
+
+<img width="1285" height="638" alt="image" src="https://github.com/user-attachments/assets/ceb9f02c-c101-4fe4-817a-413252c84733" />
+
+
+
 ```
-Id(sat) = (kn/2) · (Vgs − Vt)² · (1 + λ·Vds)
+<img width="346" height="70" alt="image" src="https://github.com/user-attachments/assets/e0e72f69-ea1f-472d-8a4a-2e45c73f33b5" />
+
 ```
+
+<img width="1195" height="649" alt="image" src="https://github.com/user-attachments/assets/ba06ab6d-a44a-4ba6-9cff-c3640e8125e9" />
 
 The `(1 + λ·Vds)` term captures **channel-length modulation** — as Vds pushes beyond pinch-off, the depletion region at the drain expands, effectively shortening the channel and allowing Id to increase very slowly. λ is a process-dependent parameter provided in SPICE model files.
 
@@ -238,7 +264,12 @@ SPICE reads a **netlist** describing the circuit topology, device models, and si
 
 > **SPICE Simulation Flow**
 
-![SPICE Workflow Diagram](https://user-images.githubusercontent.com/89193562/132533155-7affa537-beb3-4aa4-8eab-b4ff3aaab64d.JPG)
+<img width="1313" height="683" alt="image" src="https://github.com/user-attachments/assets/8d5c7f6d-8782-4a27-a224-a53f3c917a87" />
+
+SPICE Netlist
+
+<img width="1216" height="612" alt="image" src="https://github.com/user-attachments/assets/3b8b1c09-3300-4527-92ec-df2351a7fe08" />
+
 
 SKY130 provides models for five statistical **process corners**:
 
@@ -252,7 +283,7 @@ SKY130 provides models for five statistical **process corners**:
 
 A **node** is any wire junction connecting two or more device terminals. The SPICE netlist assigns a name to every node; all unlabelled nodes default to 0 (GND).
 
-![NMOS SPICE Netlist Example](https://user-images.githubusercontent.com/89193562/132711027-1aa941dc-56bc-4be9-af32-5a96b76d9c09.jpg)
+<img width="683" height="518" alt="image" src="https://github.com/user-attachments/assets/66a2095d-e0d4-46ba-9381-3391f6994d80" />
 
 ---
 
@@ -283,11 +314,16 @@ Vin in  0 1.8V
 .end
 ```
 
-![Day 1 — NGSpice Terminal](https://user-images.githubusercontent.com/89193562/132533223-85fac5e7-3073-43fc-9d14-a248e9116a2e.JPG)
+<img width="791" height="491" alt="image" src="https://github.com/user-attachments/assets/c928beed-7938-496b-97cc-3e3b15a52444" />
 
-![Day 1 — Id vs Vds Output Plot](https://user-images.githubusercontent.com/89193562/132533338-e2298388-5d87-49a2-b5e2-6156ce69c46d.JPG)
+
+<img width="811" height="514" alt="image" src="https://github.com/user-attachments/assets/62889e83-ebdc-4bdf-8ef9-1af3ef014190" />
+
 
 > 💡 **Reading a value:** Left-click any point on the curve. The terminal prints `x0` (Vds) and `y0` (Id in amps).
+
+<img width="939" height="609" alt="image" src="https://github.com/user-attachments/assets/4b25c418-e33c-4af3-b728-746271d044ce" />
+
 
 ---
 
@@ -295,41 +331,42 @@ Vin in  0 1.8V
 
 ### Short-Channel Effects
 
-**Regions on the Id–Vds plane:**
+**The complete Id–Vds landscape:**
 
-The Id–Vds family of curves maps out all three regions at once:
+Sweeping Vgs across multiple values produces a family of Id–Vds curves that reveals all operating regions simultaneously. The zero-overdrive trace (Vgs = Vt) sits flat along the x-axis — the device is fully OFF. Higher Vgs traces climb steeply in the linear region, then level off once pinch-off occurs at the saturation boundary.
 
-![Id vs Vds — All Regions](https://user-images.githubusercontent.com/89193562/132864852-2f667ae5-a71c-4e67-975a-e4c137843114.png)
+![Day 2 — Id vs Vds Family of Curves](YOUR_IMAGE_URL — friend's image: Id-vs-Vds all regions/curves)
 
-The Vgs = 0 trace hugs the x-axis because the device is fully off. Higher Vgs traces show clear linear and saturation regions. The transition between the two occurs at the pinch-off boundary (Vds = Vgs − Vt).
+**Velocity saturation in short-channel devices:**
 
-**Why velocity saturates at short channel lengths:**
+Long-channel MOSFET theory assumes carrier velocity rises proportionally with the lateral electric field. This relationship breaks down once the channel shortens to the 250 nm regime or below: the field intensity becomes large enough to push carriers into **velocity saturation**, where drift velocity plateaus at a material-specific maximum (vsat) regardless of further field increase.
 
-In long devices, carrier velocity scales linearly with electric field. In short-channel devices (L < 250 nm), the field becomes high enough to push carriers into a **velocity saturation** regime — velocity stops increasing and plateaus at a critical value.
+<img width="623" height="289" alt="image" src="https://github.com/user-attachments/assets/c6c1a257-6b01-4f37-81ac-6a12e4f53990" />
 
-![Velocity Saturation Equation](https://user-images.githubusercontent.com/89193562/132674315-002da47e-65d4-4976-b2c0-b309dee76df7.JPG)
 
-![Velocity vs. Electric Field](https://user-images.githubusercontent.com/89193562/132679374-baa32830-fcca-49c3-be54-10b5caf2c5d3.png)
+<img width="681" height="284" alt="image" src="https://github.com/user-attachments/assets/d8ec917b-2d41-4eb1-be73-655d81ff954d" />
 
-This adds a **fourth operating region** to short-channel devices (L < 250 nm):
 
-| Channel Length | Regions |
-|----------------|---------|
+The practical consequence is that short-channel devices (L < 250 nm) exhibit **four** distinct operating regions rather than three:
+
+| Channel Length | Operating Regions |
+|----------------|-------------------|
 | Long (> 250 nm) | Cutoff → Linear → Saturation |
 | Short (< 250 nm) | Cutoff → Linear → **Velocity Saturation** → Saturation |
 
-The unified drain current model uses `Vmin = min(Vgt, Vds, Vdsat)`:
+To handle both long- and short-channel behavior within a unified framework, SPICE introduces `Vmin = min(Vgt, Vds, Vdsat)`, yielding the generalized drain current expression:
+
 ```
-Id = µn·Cox·(W/L)·(Vmin²/2)·(1 + λ·Vds)
+Id = µn·Cox·(W/L) · (Vmin²/2) · (1 + λ·Vds)
 ```
 
-`Vdsat` is a **process-only parameter** — it is the drain voltage at which carriers saturate, independent of bias conditions. Devices at smaller nodes therefore saturate at lower Vds values, making velocity saturation a dominant effect in modern process nodes.
+Here `Vdsat` is a **process-defined** constant — the drain-source voltage at which velocity saturates — extracted from foundry measurements and encoded in the SKY130 model files. Shorter devices reach Vdsat at lower Vds values, making velocity saturation increasingly dominant as technology scales.
 
 ---
 
 ### Lab — Day 2
 
-**Part A — Id vs Vds for short-channel NMOS (w=0.39 µm, l=0.15 µm):**
+**Part A — Short-channel Id vs Vds (w=0.39 µm, l=0.15 µm):**
 
 ```spice
 * ─── Model ───────────────────────────────────────────────
@@ -354,9 +391,11 @@ Vin in  0 1.8V
 .end
 ```
 
-![Day 2A — NGSpice Terminal (Id vs Vds)](https://user-images.githubusercontent.com/89193562/132675164-206b1eeb-8cba-44a8-af4f-bf4322e37550.JPG)
+<img width="848" height="591" alt="image" src="https://github.com/user-attachments/assets/812b2fa3-f379-405b-b9cb-4ceaafa8acea" />
 
-![Day 2A — Id vs Vds Short Channel](https://user-images.githubusercontent.com/89193562/132675399-e8f69dc7-f222-4e91-81fc-4cb2639213d4.JPG)
+
+<img width="793" height="552" alt="image" src="https://github.com/user-attachments/assets/ddd0ddb2-6aad-4651-8952-198d655c3a46" />
+
 
 **Part B — Id vs Vgs (Threshold Voltage extraction):**
 
@@ -383,41 +422,52 @@ Vin in  0 1.8V
 .end
 ```
 
-![Day 2B — NGSpice Terminal (Id vs Vgs)](https://user-images.githubusercontent.com/89193562/132675473-18cd0d22-a956-4c4a-978b-e4837c292d70.JPG)
+<img width="837" height="525" alt="image" src="https://github.com/user-attachments/assets/a5bc63cf-98dd-443f-9bcc-6741260e1c32" />
 
-![Day 2B — Id vs Vgs (Vt extraction)](https://user-images.githubusercontent.com/89193562/132675655-f779b9be-bcee-4d31-8a62-6204bc0bca40.JPG)
 
-> 💡 **Finding Vt:** Extend the straight-line portion of the Id–Vgs curve until it crosses the x-axis. That x-intercept is Vt.
+<img width="937" height="468" alt="image" src="https://github.com/user-attachments/assets/4236e3f7-599f-4e70-9860-faa13745a952" />
+
+
+
+> 💡 **Extracting Vt graphically:** On the Id–Vgs plot, locate the segment where current begins to climb linearly. Extend this slope back to the x-axis — the intercept is the threshold voltage Vt for this short-channel device.
+
+<img width="650" height="414" alt="image" src="https://github.com/user-attachments/assets/0a8c327d-1f2d-44e9-a17d-a8f5093dc94f" />
+
 
 ---
 
 ### CMOS Inverter & VTC
 
-**Transistor switching model:** Each transistor can be approximated as a voltage-controlled switch — infinite impedance below Vt, finite resistance above it.
+**Switch-level model of the inverter:**
 
-![CMOS Inverter Circuit](https://user-images.githubusercontent.com/89193562/132681895-fe353e35-c49a-4fcf-a822-640a20898861.jpg)
+Each transistor acts as a gate-controlled switch: below threshold it appears as near-infinite resistance; above threshold it presents a finite resistance whose value is set by W/L. This simplification captures inverter logic but not propagation delay — that requires full I–V analysis.
 
-When Vin = 0 V, the PMOS gate is pulled low (|Vgsp| > |Vtp|) turning it on; the NMOS gate is at zero (Vgsn < Vtn) keeping it off — output charges to Vdd. When Vin = Vdd the roles reverse and the output discharges to GND.
+<img width="893" height="504" alt="image" src="https://github.com/user-attachments/assets/130e5c73-f2b1-46b0-8976-370d627eaa7d" />
 
-The voltage relationships used to draw the load curves are:
+<img width="895" height="504" alt="image" src="https://github.com/user-attachments/assets/325f226b-44ed-4fa0-8e09-6e1391a44d38" />
 
-![NMOS Voltage Equations](https://user-images.githubusercontent.com/89193562/132678807-2bcbfa75-4081-46cb-899d-7b3915c62688.JPG)
 
-![PMOS Voltage Equations](https://user-images.githubusercontent.com/89193562/132678852-68fd02e7-f396-45f5-8ea3-3b2645c71372.JPG)
 
-![KCL Current Constraint](https://user-images.githubusercontent.com/89193562/132678900-8087d81b-0588-46f8-8fc9-11e51725ebdd.JPG)
+The terminal voltages governing each device:
 
-Plotting the PMOS and NMOS load curves separately first:
+<img width="348" height="501" alt="image" src="https://github.com/user-attachments/assets/4d8c33cf-1507-462e-bef4-8bfa1bb571b5" />
 
-![PMOS Load Curve](https://user-images.githubusercontent.com/89193562/132907643-9423cede-796e-40b7-a8bb-36fde16d533f.jpg)
 
-![NMOS Load Curve](https://user-images.githubusercontent.com/89193562/132907688-664d7f0e-da4e-4c36-9270-fca25f24b945.jpg)
+Plotting the PMOS and NMOS load lines individually first clarifies where each device transitions between regions. Superimposing both and tracing the intersection at every Vin value sweeps out the complete **Voltage Transfer Characteristic (VTC)**:
 
-Superimposing both curves and tracing the intersection points at each Vin value produces the **Voltage Transfer Characteristic (VTC)**:
+PMOS I-V characteristic or load curve:
+<img width="831" height="246" alt="image" src="https://github.com/user-attachments/assets/2c2c6957-c239-40e2-b76f-6e762b565fab" />
 
-![Superimposed Load Curves](https://user-images.githubusercontent.com/89193562/132946435-09010251-dd7e-4af4-b791-ea5655dd171f.jpg)
 
-![Vout vs Vin — Complete VTC](https://user-images.githubusercontent.com/89193562/132859275-865ad5a6-d174-4bb0-9615-77cc5deb9992.jpg)
+NMOS I-V characteristic or load curve:
+<img width="809" height="351" alt="image" src="https://github.com/user-attachments/assets/09ddf45f-8a94-4c1e-b575-1e1a80d75994" />
+
+PMOS + NMOS load lines superimposed on same axes:
+<img width="450" height="286" alt="image" src="https://github.com/user-attachments/assets/8060648d-d147-4f7f-892e-2b2213a6b44b" />
+
+
+Final Vout vs Vin voltage transfer characteristic:
+<img width="902" height="508" alt="image" src="https://github.com/user-attachments/assets/e3aa991d-af08-480b-89f2-9c0afbf4be22" />
 
 ---
 
@@ -425,15 +475,21 @@ Superimposing both curves and tracing the intersection points at each Vin value 
 
 ### SPICE Deck for the Inverter
 
-A complete SPICE deck needs four sections: component connectivity, component values, node names, and simulation commands.
+A well-structured SPICE netlist for the inverter requires four ingredients:
+1. **Component connectivity** — which terminal connects to which node
+2. **Device parameters** — W/L sizing and model name for each transistor
+3. **Source and load definitions** — supply voltages, input stimulus, output capacitance
+4. **Simulation commands** — analysis type, sweep range, output variables
 
-![Reference CMOS Inverter Netlist](https://user-images.githubusercontent.com/89193562/132860957-9e9492b5-c646-4866-add5-279064e73c82.jpg)
+The standard inverter netlist template used throughout Day 3:
+
+![Inverter SPICE Netlist Reference](YOUR_IMAGE_URL — friend's image: inverter SPICE deck/netlist screenshot)
 
 ---
 
 ### Lab — Day 3
 
-**VTC Simulation:**
+**VTC Simulation (DC sweep):**
 
 ```spice
 * ─── Model ───────────────────────────────────────────────
@@ -459,13 +515,13 @@ Vin in  0 1.8V
 .end
 ```
 
-![Day 3 VTC — Terminal](https://user-images.githubusercontent.com/89193562/132863150-3d5b53a2-a802-43cd-aaca-1d28bca51945.JPG)
+![Day 3 VTC — NGSpice Terminal](YOUR_IMAGE_URL — friend's image: Day3 VTC DC sweep terminal output)
 
-![Day 3 VTC — Output Plot](https://user-images.githubusercontent.com/89193562/132863366-e80c7b36-42af-45bb-a140-c75502008046.JPG)
+![Day 3 VTC — Output Waveform](YOUR_IMAGE_URL — friend's image: Day3 VTC Vout vs Vin plot)
 
-> 💡 **Finding Vm:** Zoom into the region where Vout ≈ Vin. Left-click there — since Vm sits at the Vout = Vin diagonal, x0 ≈ y0 ≈ Vm.
+> 💡 **Locating Vm:** Zoom into the transition region where Vout ≈ Vin. Click at the Vout = Vin crossing — because Vm lies precisely on the 45° diagonal, the readout satisfies x0 ≈ y0 ≈ Vm.
 
-**Transient Analysis — Rise/Fall Delay:**
+**Transient Analysis — Propagation Delay:**
 
 ```spice
 * ─── Model ───────────────────────────────────────────────
@@ -488,35 +544,35 @@ Vin in  0 PULSE(0V 1.8V 0 0.1ns 0.1ns 2ns 4ns)
 .end
 ```
 
-![Day 3 Transient — Terminal](https://user-images.githubusercontent.com/89193562/132863836-2348a72e-a7e9-4ee3-9d3c-bb5c63d64183.JPG)
+![Day 3 Transient — NGSpice Terminal](YOUR_IMAGE_URL — friend's image: Day3 transient simulation terminal)
 
-![Day 3 Transient — Waveform](https://user-images.githubusercontent.com/89193562/132863939-9f777f44-e10e-4bc3-a9a2-41e833dd465b.JPG)
+![Day 3 Transient — Input/Output Waveform](YOUR_IMAGE_URL — friend's image: Day3 transient waveform plot)
 
-**Delay measurement procedure:**
-- **Rise delay** — Zoom near Vdd/2 on the output rising edge. Measure Δx between the output crossing Vdd/2 and the input falling through Vdd/2.
-- **Fall delay** — Same approach, but for the output falling edge against the input rising edge.
+**Measuring rise and fall delay:**
+- **Rise delay** — Zoom to the output rising edge near Vdd/2. Record the time difference between the output crossing Vdd/2 upward and the input falling through Vdd/2 downward.
+- **Fall delay** — Mirror the same process on the output's falling edge against the input's rising edge.
 
 ---
 
 ### Switching Threshold (Vm)
 
-Vm is the input voltage at which Vout = Vin — the midpoint of the inverter's transition. Graphically it is the intersection of the VTC with a 45° line from the origin.
+Vm is the gate input voltage at which output equals input — the midpoint of the VTC. On the transfer curve it is the point where the characteristic crosses the unity-gain diagonal (slope = −1).
 
-At Vm, both transistors are simultaneously active: `Vgs = Vds` for each, and KCL requires `IdP + IdN = 0`.
+At Vm, both PMOS and NMOS are simultaneously in saturation with `Vgs = Vds` for each. KCL at the output node mandates `|IdP| = |IdN|`:
 
-![IdN and IdP at Vm](https://user-images.githubusercontent.com/89193562/132867914-dc5b1ac9-a4d9-452b-9352-4872c94264fe.JPG)
+![IdN and IdP Current Balance at Vm](YOUR_IMAGE_URL — friend's image: IdN + IdP = 0 at Vm)
 
-![Setting IdP + IdN = 0](https://user-images.githubusercontent.com/89193562/132868215-8eb427a0-1a5a-4c3f-8cd5-76c41d49d947.JPG)
+![Vm Derivation Equation](YOUR_IMAGE_URL — friend's image: Vm closed-form derivation)
 
-Solving for Vm:
+Solving yields the closed-form expression:
 
-![Vm Closed-Form Expression](https://user-images.githubusercontent.com/89193562/132869184-bd60ea34-e16f-4c7b-9be7-05386549329a.JPG)
+![Vm Closed-Form Formula](YOUR_IMAGE_URL — friend's image: Vm formula result)
 
-Working backwards, if a specific Vm is required, the needed PMOS-to-NMOS sizing ratio is:
+Working in reverse — if a target Vm is specified, the required PMOS-to-NMOS width ratio is:
 
-![W/L Ratio for Target Vm](https://user-images.githubusercontent.com/89193562/132872201-eba019d8-5a72-480a-a44d-f4d66f718da1.JPG)
+![W/L Ratio for a Target Vm](YOUR_IMAGE_URL — friend's image: W/L ratio equation for target Vm)
 
-**Simulated results across PMOS widths:**
+**Measured results across PMOS widths:**
 
 | PMOS sizing | Rise delay | Fall delay | Vm |
 |-------------|-----------|------------|------|
@@ -526,7 +582,7 @@ Working backwards, if a specific Vm is required, the needed PMOS-to-NMOS sizing 
 | 4× (Wn/Ln) | 45 ps | 84 ps | 1.35 V |
 | 5× (Wn/Ln) | 37 ps | 88 ps | 1.40 V |
 
-Notable takeaways: the 2× sizing achieves nearly symmetrical rise/fall delays, making it the standard choice for **clock tree inverters/buffers**. Larger ratios progressively shift Vm rightward while unbalancing delays — still valid for data-path applications. Ron(PMOS) ≈ 2.5 × Ron(NMOS) explains why PMOS must be wider to match drive strength.
+The 2× sizing achieves near-symmetrical rise/fall delays, which is the standard choice for **clock tree buffers and inverters**. Wider PMOS ratios shift Vm further right and imbalance delays — useful in data-path contexts where asymmetric drive strength is acceptable. The intrinsic mobility mismatch (Ron_PMOS ≈ 2.5 × Ron_NMOS) explains why PMOS must be widened to achieve equivalent drive.
 
 ---
 
@@ -534,42 +590,45 @@ Notable takeaways: the 2× sizing achieves nearly symmetrical rise/fall delays, 
 
 ### Noise Margin Theory
 
-Real digital systems ride on power supplies that carry noise. The CMOS inverter must tolerate this noise without misinterpreting a logic level. This tolerance is quantified as **noise margin**.
+On-chip power lines are never perfectly quiet — capacitive and inductive coupling inject noise onto logic signals. The CMOS inverter must correctly interpret its input despite this noise. **Noise margin** quantifies how much corruption the gate can absorb before misreading a logic level.
 
-**Ideal vs. real transfer characteristics:**
+**Ideal vs. real VTC:**
 
-An ideal inverter flips instantaneously at Vdd/2 with infinite slope. The real curve has a finite-slope transition region — defining four boundary voltages:
+An ideal inverter would flip instantaneously at exactly Vdd/2, producing a vertical-drop transfer curve with infinite gain. The physically realised characteristic transitions over a finite voltage range, and its slope in this region is the small-signal voltage gain.
 
-![Ideal Inverter Characteristics](https://user-images.githubusercontent.com/89193562/132940629-2c46f46d-d9a6-4c3b-9615-45f88bac7944.jpg)
+![Ideal Inverter Transfer Characteristic](YOUR_IMAGE_URL — friend's image: ideal inverter VTC)
 
-![Real Inverter Characteristics](https://user-images.githubusercontent.com/89193562/132940634-1688436a-cf57-41d7-82d8-70e0512a1154.jpg)
+![Real Inverter Transfer Characteristic](YOUR_IMAGE_URL — friend's image: real inverter VTC with finite slope)
 
-| Voltage | Full Name | Logic Meaning |
-|---------|-----------|---------------|
-| Vol | Output Low | Maximum output voltage still read as '0' |
-| Vil | Input Low | Maximum input voltage treated as '0' |
-| Vih | Input High | Minimum input voltage treated as '1' |
-| Voh | Output High | Minimum output voltage still read as '1' |
+Four boundary voltages extracted from the real VTC define the noise margins:
 
-![I/O Curve with Noise Margin Bands](https://user-images.githubusercontent.com/89193562/132940893-994a25d6-d89f-401f-b98f-868a4f438ef1.jpg)
+| Voltage | Description | Logic Interpretation |
+|---------|-------------|----------------------|
+| Vol | Output Low | Maximum output still guaranteed to be logic '0' |
+| Vil | Input Low | Maximum input reliably decoded as '0' |
+| Vih | Input High | Minimum input reliably decoded as '1' |
+| Voh | Output High | Minimum output still guaranteed to be logic '1' |
 
-![Noise Margin Scale Plot](https://user-images.githubusercontent.com/89193562/132940899-e462e34a-643c-4864-9024-73bc997474c1.jpg)
+![VTC with Noise Margin Bands Marked](YOUR_IMAGE_URL — friend's image: VTC with Vol/Vil/Vih/Voh marked)
 
-The two margins:
+![Noise Margin Scale Diagram](YOUR_IMAGE_URL — friend's image: NMH and NML bands diagram)
+
+The two margin values are:
+
 ```
-NMH = Voh − Vih    ← tolerance for noise on a logic '1'
-NML = Vil − Vol    ← tolerance for noise on a logic '0'
+NMH = Voh − Vih    ← headroom against noise on a logic '1'
+NML = Vil − Vol    ← headroom against noise on a logic '0'
 ```
 
-![NMH and NML Equations](https://user-images.githubusercontent.com/89193562/132941048-4d1a35eb-24bc-44dd-ba25-5a5abecd73bb.JPG)
+![NMH and NML Equations](YOUR_IMAGE_URL — friend's image: NMH NML equations)
 
-**Noise bump hazard classification:**
+**Noise hazard classification:**
 
-![Noise Bump at Different Levels](https://user-images.githubusercontent.com/89193562/132951411-2ce7e449-b8bb-4e24-90b3-932e3344533d.jpg)
+![Noise Bump Severity Levels](YOUR_IMAGE_URL — friend's image: noise bump hazard diagram)
 
-A noise glitch that stays within NML is harmless — it is still decoded as '0'. One that enters the undefined transition band may or may not flip the logic. One that reaches the NMH band will certainly be decoded as '1' and must be eliminated.
+A glitch that stays within NML is absorbed safely — still decoded as '0'. A glitch pushing into the undefined transition band risks a logic error. One crossing the NMH band will definitely be decoded as '1' and represents a failure condition.
 
-**Measured noise margins across PMOS sizing:**
+**Noise margins across PMOS sizing:**
 
 | PMOS size | NMH | NML | Vm |
 |-----------|-----|-----|----|
@@ -579,9 +638,9 @@ A noise glitch that stays within NML is harmless — it is still decoded as '0'.
 | 4× (Wn/Ln) | 0.42 V | 0.27 V | 1.35 V |
 | 5× (Wn/Ln) | 0.42 V | 0.27 V | 1.40 V |
 
-Increasing PMOS width improves NMH (stronger pull-up holds Voh high) but slightly degrades NML at large ratios (NMOS becomes relatively weaker). The total NMH swing of ~120 mV across all sizings is entirely within acceptable bounds — confirming CMOS inverter robustness.
+Widening PMOS raises Voh and thus NMH (stronger pull-up sustains the high output level). At large PMOS ratios NML dips slightly because the relatively weaker NMOS can no longer pull the output firmly to GND. The NMH span of roughly 120 mV across all sizing options sits comfortably within design margins — an explicit demonstration of CMOS inverter robustness.
 
-![Digital vs Analog Applicable Regions on VTC](https://user-images.githubusercontent.com/89193562/132952201-c0a046b8-1c7e-45f3-bd8e-590efba51f59.jpg)
+![Digital vs Analog Operating Zones on VTC](YOUR_IMAGE_URL — friend's image: digital vs analog regions on VTC)
 
 ---
 
@@ -611,9 +670,9 @@ Vin in  0 1.8V
 .end
 ```
 
-![Day 4 — NGSpice Terminal](https://user-images.githubusercontent.com/89193562/132941122-635e2440-e1a6-4df2-9218-480b45ddf61d.JPG)
+![Day 4 — NGSpice Terminal](YOUR_IMAGE_URL — friend's image: Day4 NGSpice terminal output)
 
-![Day 4 — VTC Output for Noise Margin Extraction](https://user-images.githubusercontent.com/89193562/132941130-48c2c93d-3ad2-4a9c-acd1-c7caec2bf87c.JPG)
+![Day 4 — VTC Output for Noise Margin Extraction](YOUR_IMAGE_URL — friend's image: Day4 VTC plot with cursor)
 
 **Extracting NMH and NML manually:**
 
@@ -629,21 +688,19 @@ For this run: `x0=0.767, y0=1.714, x1=0.977, y1=0.111` → **NMH = 0.737 V, NML 
 
 ### Power Supply Scaling
 
-Technology scaling reduces both transistor dimensions and operating voltage. Moving from 250 nm (Vdd ≈ 2.5 V) to 130 nm (SKY130, Vdd ≈ 1.8 V) and lower is not just a size reduction — it changes the inverter's electrical characteristics.
-
-Running at a reduced supply (e.g., 0.5 V) has two competing effects:
+Technology scaling reduces both transistor dimensions and supply voltage hand-in-hand. Moving from 250 nm (Vdd ≈ 2.5 V) to the SKY130 130 nm node (Vdd ≈ 1.8 V) is not just geometry — it reshapes the inverter's electrical characteristics. Pushing Vdd even lower (e.g., 0.5 V) introduces a trade-off:
 
 | Aspect | Low Vdd advantage | Low Vdd disadvantage |
 |--------|-------------------|----------------------|
 | Gain | ~50% higher | — |
 | Energy | ~90% lower | — |
-| Speed | — | Insufficient swing to fully charge/discharge load |
+| Speed | — | Limited voltage swing, insufficient to fully charge/discharge load |
 
 ---
 
 ### Lab — Day 5 (Supply)
 
-The following script sweeps Vdd from 1.8 V down to 0.8 V in 0.2 V steps and overlays all six VTC curves:
+The following script sweeps Vdd from 1.8 V down to 0.8 V in 0.2 V steps and overlays all six VTC curves on one plot:
 
 ```spice
 * ─── Model ───────────────────────────────────────────────
@@ -674,49 +731,49 @@ Vin in  0 1.8V
 .end
 ```
 
-![Day 5 Supply — NGSpice Terminal](https://user-images.githubusercontent.com/89193562/132985847-4bd15226-3483-47e8-9961-1080e21564f8.JPG)
+![Day 5 Supply — NGSpice Terminal](YOUR_IMAGE_URL — friend's image: Day5 supply variation NGSpice terminal)
 
-![Day 5 Supply — VTC Family of Curves](https://user-images.githubusercontent.com/89193562/132985866-6915c943-8cf2-4c48-a524-c4b4c1169147.JPG)
+![Day 5 Supply — VTC Family of Curves](YOUR_IMAGE_URL — friend's image: Day5 supply variation VTC overlay plot)
 
 **Gain calculation (Vdd = 1.8 V curve):**
 
-Click two points where slope is steepest (near −1 transitions):
-- Top: `(x0, y0) = (0.767, 1.714)`
-- Bottom: `(x1, y1) = (0.983, 0.100)`
+Click two points where the VTC slope is steepest (near the −1 slope transitions):
+- Top point: `(x0, y0) = (0.767, 1.714)`
+- Bottom point: `(x1, y1) = (0.983, 0.100)`
 - Gain = |Δy/Δx| = |1.614 / −0.216| ≈ **7.47**
 
 ---
 
 ### Manufacturing Variation
 
-Even when designing for a single operating point, the fabricated device will differ due to two unavoidable process imperfections:
+Even when a circuit is designed for a single nominal operating point, fabricated devices will drift from their drawn specifications due to two unavoidable process imperfections:
 
-**1. Etching variation:** The lithography and etch steps that define polysilicon gate width and diffusion width are never perfectly repeatable. This shifts the effective W/L of every transistor slightly from its drawn value, directly affecting Id and therefore delay.
+**1. Lithographic and etch variation:** The steps that define polysilicon gate width and diffusion geometry are never perfectly repeatable. Each run shifts the effective W/L of every transistor slightly from its drawn value, directly modulating Id and hence switching delay.
 
-**2. Gate oxide thickness variation:** Ideal oxidation grows a perfectly uniform tox. In practice, tox varies spatially across the wafer. Because Cox = εox/tox, and Id ∝ Cox, every thickness fluctuation modulates drain current.
+**2. Gate oxide thickness variation:** Thermal oxidation produces a nominally uniform tox, but in practice tox varies spatially across the wafer. Since Cox = εox/tox, and Id ∝ Cox, thickness fluctuations translate directly into drain current variation — and therefore timing variation.
 
-**Inverter chain context:**
+**Impact in an inverter chain:**
 
-![Single Inverter Layout](https://user-images.githubusercontent.com/89193562/132986827-95402e8e-0b25-40ef-b1fa-8122c6dcba7b.jpg)
+![Single Inverter Layout](YOUR_IMAGE_URL — friend's image: single inverter layout/cell view)
 
-![Inverter Chain Layout](https://user-images.githubusercontent.com/89193562/132986894-f6d2a87b-acf9-4bd9-8b5d-a1f98e343a39.jpg)
+![Inverter Chain Layout](YOUR_IMAGE_URL — friend's image: inverter chain layout)
 
-Gates in the middle of a chain are flanked by identical structures — their distortions repeat. Gates at the ends connect to non-identical devices and may exhibit different parametric shifts.
+Gates in the middle of a chain are flanked by identical structures, so their fabrication distortions tend to cancel. Edge gates connect to dissimilar structures and may experience different systematic shifts.
 
 **Extreme process corners:**
 
 | Corner | PMOS | NMOS | Vm |
 |--------|------|------|----|
-| Weak PMOS / Strong NMOS | Small, high-R | Wide, low-R | ~0.7 V |
-| Strong PMOS / Weak NMOS | Wide, low-R | Small, high-R | ~1.4 V |
+| Weak PMOS / Strong NMOS | Narrow, high-R | Wide, low-R | ~0.7 V |
+| Strong PMOS / Weak NMOS | Wide, low-R | Narrow, high-R | ~1.4 V |
 
-Even at the extreme corners, Vm shifts only from ~0.7 V to ~1.4 V — the gate still correctly inverts across the entire range, confirming CMOS's fundamental robustness to process variation. Noise margin variations across corners: NMH spans ≈400 mV, NML spans ≈300 mV — both tolerable.
+Even at these extremes, Vm shifts only within the 0.7 V–1.4 V range — the inverter continues to invert correctly across the full span. Noise margins at the corners: NMH spans ≈400 mV, NML spans ≈300 mV — both well within acceptable bounds, confirming CMOS's intrinsic robustness to process variation.
 
 ---
 
 ### Lab — Day 5 (Device)
 
-This simulation uses an extremely wide PMOS (w=7) against a minimum-width NMOS (w=0.42) to emulate the Strong PMOS / Weak NMOS corner:
+This simulation uses an extremely wide PMOS (w=7) against a minimum-width NMOS (w=0.42) to emulate the **Strong PMOS / Weak NMOS** corner:
 
 ```spice
 * ─── Model ───────────────────────────────────────────────
@@ -742,27 +799,10 @@ Vin in  0 1.8V
 .end
 ```
 
-![Day 5 Device — NGSpice Terminal](https://user-images.githubusercontent.com/89193562/132985962-a05f4559-ce5d-4af5-bf2e-67e091c577dd.JPG)
+![Day 5 Device — NGSpice Terminal](YOUR_IMAGE_URL — friend's image: Day5 device variation NGSpice terminal)
 
-![Day 5 Device — VTC Shifted Right](https://user-images.githubusercontent.com/89193562/132985983-6313769f-5ef4-432d-87c9-ef39f7e572f0.JPG)
+![Day 5 Device — VTC Shifted Right](YOUR_IMAGE_URL — friend's image: Day5 device corner VTC shifted plot)
 
 The heavily oversized PMOS pulls the VTC rightward. Zooming in near the Vout = Vin crossing yields: `x0 ≈ y0 ≈ 0.988 V` — confirming Vm ≈ **0.988 V** for this corner.
 
 ---
-
-## Conclusion
-
-This five-day workshop built a complete understanding of CMOS circuit behavior starting from first principles. Beginning with MOSFET physics — threshold voltage, body effect, drift current — and progressing through SPICE-based simulation of the full CMOS inverter lifecycle, the course delivered both theoretical grounding and hands-on fluency with the SKY130 PDK.
-
-The central lesson reinforced throughout is the **inherent robustness of the CMOS inverter**: its noise margins, switching threshold, and logic functionality remain intact across a wide range of W/L sizing choices, supply voltages, and manufacturing process corners. This robustness is not accidental — it is a direct consequence of the complementary NMOS/PMOS topology and is best understood (and verified) through SPICE simulation.
-
----
-
-## References
-
-- https://github.com/kunalg123/sky130CircuitDesignWorkshop
-- https://www.vlsisystemdesign.com/cmos-circuit-design-spice-simulation-using-sky130-technology/
-- https://skywater-pdk.readthedocs.io/en/main/
-- https://www.vsdiat.com/
-- https://github.com/kunalg123/vsdflow
-- https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
