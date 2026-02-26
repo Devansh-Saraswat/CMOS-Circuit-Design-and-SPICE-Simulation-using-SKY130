@@ -756,25 +756,62 @@ Setting the PMOS-to-NMOS W/L ratio to 2.77 and sweep (Vin) from 0 to 1.8 V in 
 
 For this run: `x0=0.767, y0=1.714, x1=0.977, y1=0.111` → **NMH = 0.737 V, NML = 0.656 V**
 
+
+
 ---
 
 ## Day 5 — Supply & Device Variation
 
 ### Power Supply Scaling
 
-Technology scaling reduces both transistor dimensions and supply voltage hand-in-hand. Moving from 250 nm (Vdd ≈ 2.5 V) to the SKY130 130 nm node (Vdd ≈ 1.8 V) is not just geometry — it reshapes the inverter's electrical characteristics. Pushing Vdd even lower (e.g., 0.5 V) introduces a trade-off:
+Technology scaling reduces both transistor dimensions and operating voltage hand-in-hand. As process nodes shrink, device density and switching speed improve — but sensitivity to supply fluctuations also becomes more pronounced. Studying how the CMOS inverter responds when Vdd is progressively reduced reveals two competing effects that sit at the heart of low-power design.
+
+The PMOS is sized wider than the NMOS to compensate for the intrinsic mobility difference and maintain switching symmetry. With a 10 fF load capacitance, Vdd is swept from 2.5 V down to 0.5 V in 0.5 V steps and a DC transfer curve is generated at each supply level.
+
+<img width="861" height="501" alt="image" src="https://github.com/user-attachments/assets/a42a166c-6b59-42aa-80b7-e63b234a2cf4" />
+
+Across all supply levels, the overall VTC shape is preserved and the inverter continues to perform correct logic inversion. Even at 0.5 V, switching behavior is maintained — a direct demonstration of the CMOS inverter's inherent robustness under aggressive power scaling.
+
+<img width="698" height="524" alt="image" src="https://github.com/user-attachments/assets/fe96a410-b59f-4403-8fa9-769f01078180" />
+
+---
+
+### Advantages of Low Supply Voltage
+
+**Higher Gain:**
+
+Reducing Vdd does not weaken the inverter's switching sharpness — counterintuitively, it increases it. When the VTC is normalized against Vdd, the transition region becomes steeper at lower supply voltages. A 0.5 V supply delivers roughly **50% higher gain** compared to 2.5 V operation.
+
+<img width="910" height="515" alt="image" src="https://github.com/user-attachments/assets/09de5d54-accb-491d-9efe-47ab5440f163" />
+
+<img width="906" height="500" alt="image" src="https://github.com/user-attachments/assets/41924ce0-e015-4347-a9c4-fd285bdafaa7" />
+
+This steeper normalized transition means the inverter distinguishes between logic levels more decisively at lower Vdd — even as the absolute voltage swing narrows, the gate's discriminating ability improves.
+
+**Lower Energy Consumption:**
+
+Switching energy scales with the square of supply voltage: `E = C · Vdd²`. Halving Vdd therefore cuts switching energy to one-quarter; reducing from 2.5 V all the way to 0.5 V yields an energy reduction of approximately **90%**.
+
+<img width="905" height="499" alt="image" src="https://github.com/user-attachments/assets/980ff609-36f8-4e10-9c46-b3e15fee2a11" />
+
+<img width="899" height="497" alt="image" src="https://github.com/user-attachments/assets/1aaf017b-e6b5-4be3-8b32-9195b8cfc569" />
+
+This quadratic dependence makes supply voltage reduction the single most effective lever available to low-power designers. The trade-off summarises as:
 
 | Aspect | Low Vdd advantage | Low Vdd disadvantage |
 |--------|-------------------|----------------------|
-| Gain | ~50% higher | — |
-| Energy | ~90% lower | — |
-| Speed | — | Limited voltage swing, insufficient to fully charge/discharge load |
+| Gain | ~50% higher (normalized) | — |
+| Switching energy | ~90% lower | — |
+| Speed | — | Reduced drive current slows charge/discharge |
+| Delay | — | Both rise and fall delays increase |
+
+At reduced supply, the drive current available to charge and discharge the load capacitor shrinks, directly extending propagation delay. Low-power operation therefore always involves a speed penalty that must be budgeted in timing closure.
 
 ---
 
 ### Lab — Day 5 (Supply)
 
-The following script sweeps Vdd from 1.8 V down to 0.8 V in 0.2 V steps and overlays all six VTC curves on one plot:
+The script below sweeps Vdd from 1.8 V down to 0.8 V in 0.2 V steps across six iterations, overlaying all six VTC curves on a single plot:
 
 ```spice
 * ─── Model ───────────────────────────────────────────────
@@ -805,49 +842,99 @@ Vin in  0 1.8V
 .end
 ```
 
-![Day 5 Supply — NGSpice Terminal](YOUR_IMAGE_URL — friend's image: Day5 supply variation NGSpice terminal)
+<img width="905" height="447" alt="image" src="https://github.com/user-attachments/assets/c4616850-ac83-49c8-95c5-ab1874850649" />
 
-![Day 5 Supply — VTC Family of Curves](YOUR_IMAGE_URL — friend's image: Day5 supply variation VTC overlay plot)
+**Gain extracted at each supply step:**
 
-**Gain calculation (Vdd = 1.8 V curve):**
+| Vdd | |Gain| |
+|-----|---------|
+| 0.8 V | ≈ 9.40 |
+| 1.0 V | ≈ 8.95 |
+| 1.2 V | ≈ 8.60 |
+| 1.4 V | ≈ 8.25 |
+| 1.6 V | ≈ 7.95 |
+| 1.8 V | ≈ 7.60 |
 
-Click two points where the VTC slope is steepest (near the −1 slope transitions):
-- Top point: `(x0, y0) = (0.767, 1.714)`
-- Bottom point: `(x1, y1) = (0.983, 0.100)`
-- Gain = |Δy/Δx| = |1.614 / −0.216| ≈ **7.47**
+The inverse relationship between Vdd and gain confirms that supply scaling not only saves energy — it actively sharpens the inverter's switching characteristic, making the gate a more decisive logic element at lower voltages.
 
 ---
 
 ### Manufacturing Variation
 
-Even when a circuit is designed for a single nominal operating point, fabricated devices will drift from their drawn specifications due to two unavoidable process imperfections:
+Even when a circuit is designed to a precise nominal operating point, every fabricated device will deviate from its drawn specifications. Two dominant physical imperfections are responsible.
 
-**1. Lithographic and etch variation:** The steps that define polysilicon gate width and diffusion geometry are never perfectly repeatable. Each run shifts the effective W/L of every transistor slightly from its drawn value, directly modulating Id and hence switching delay.
+#### Etching Process Variation
 
-**2. Gate oxide thickness variation:** Thermal oxidation produces a nominally uniform tox, but in practice tox varies spatially across the wafer. Since Cox = εox/tox, and Id ∝ Cox, thickness fluctuations translate directly into drain current variation — and therefore timing variation.
+In a CMOS inverter, channel length (L) is defined by the polysilicon gate edge and channel width (W) is set by its overlap with the diffusion region. The lithography and etch steps that establish these boundaries are never perfectly repeatable from wafer to wafer — or even die to die on the same wafer.
 
-**Impact in an inverter chain:**
+<img width="904" height="437" alt="image" src="https://github.com/user-attachments/assets/63434fe5-b583-4660-bfa6-81f147b31482" />
 
-![Single Inverter Layout](YOUR_IMAGE_URL — friend's image: single inverter layout/cell view)
+Dimensional shifts in W or L directly modulate threshold voltage, drive current, and propagation delay — making robustness to etch variation a non-negotiable requirement for any manufacturable design.
 
-![Inverter Chain Layout](YOUR_IMAGE_URL — friend's image: inverter chain layout)
+<img width="896" height="485" alt="image" src="https://github.com/user-attachments/assets/53ef2474-08d6-4f51-9d95-7041deb87b40" />
 
-Gates in the middle of a chain are flanked by identical structures, so their fabrication distortions tend to cancel. Edge gates connect to dissimilar structures and may experience different systematic shifts.
+The technology node itself is defined by the minimum achievable gate length. As the node scales — from 180 nm to 65 nm and below — device density and switching speed both increase, but sensitivity to dimensional variation grows proportionally.
 
-**Extreme process corners:**
+<img width="369" height="465" alt="image" src="https://github.com/user-attachments/assets/3d426d01-b8f8-4dee-9163-e7498fcc0968" />
 
-| Corner | PMOS | NMOS | Vm |
-|--------|------|------|----|
-| Weak PMOS / Strong NMOS | Narrow, high-R | Wide, low-R | ~0.7 V |
-| Strong PMOS / Weak NMOS | Wide, low-R | Narrow, high-R | ~1.4 V |
+<img width="899" height="474" alt="image" src="https://github.com/user-attachments/assets/f8a755ba-c5d7-4cb1-a26d-eeded6c1f448" />
 
-Even at these extremes, Vm shifts only within the 0.7 V–1.4 V range — the inverter continues to invert correctly across the full span. Noise margins at the corners: NMH spans ≈400 mV, NML spans ≈300 mV — both well within acceptable bounds, confirming CMOS's intrinsic robustness to process variation.
+In an inverter chain, each stage accumulates its own dimensional offset — slight differences in W and L, impurity fluctuations, and edge roughness. These perturbations build up across stages, gradually shifting the chain's aggregate delay and switching threshold. Gates in the middle of a chain are surrounded by identical structures, so systematic distortions tend to cancel. Edge gates, connected to dissimilar neighbours, often exhibit higher parametric spread.
+
+---
+
+#### Gate Oxide Thickness Variation
+
+Thermal oxidation grows the gate dielectric to a target thickness tox, but spatial non-uniformity across the wafer is unavoidable in practice. Since `Cox = εox / tox`, every local thickness fluctuation directly modulates the gate oxide capacitance — and through it, the drain current `Id ∝ Cox`.
+
+<img width="896" height="478" alt="image" src="https://github.com/user-attachments/assets/f4a07d25-17c1-402c-99d5-228b5320c69c" />
+
+A region where tox is thinner than nominal sees a higher Cox, lower effective channel resistance, and stronger drive current. Conversely, a thicker-than-nominal tox region delivers a weaker Cox and reduced drive strength.
+
+<img width="608" height="503" alt="image" src="https://github.com/user-attachments/assets/7e567b92-d060-443c-abc9-daf1c3914bc5" />
+
+In an inverter chain, tox variation introduces correlated shifts in threshold voltage, drain current, and propagation delay at every stage. Middle stages experience partial statistical averaging; edge stages remain more exposed to worst-case tox offsets. Despite these effects, the CMOS inverter retains correct switching operation across the full range of realistic tox variation — a further confirmation of the topology's fundamental robustness.
+
+<img width="898" height="423" alt="image" src="https://github.com/user-attachments/assets/3ef9a01b-969a-454e-9fb4-766ed377e8b5" />
+
+---
+
+#### Extreme Device Corners
+
+To stress-test the inverter beyond realistic process variation, PMOS and NMOS widths are swept deliberately from maximum to minimum — far outside normal process spread. This quantifies the absolute boundaries of functional operation.
+
+<img width="896" height="504" alt="image" src="https://github.com/user-attachments/assets/7ffe8f8d-1bb2-4474-a9fb-a90b7cc86d34" />
+
+Two extreme cases are evaluated:
+- **Case 1 — Strong PMOS / Weak NMOS:** PMOS width = 1.875 µm, NMOS width = 0.375 µm
+- **Case 2 — Weak PMOS / Strong NMOS:** PMOS width = 0.375 µm, NMOS width = 1.875 µm
+
+Widths are stepped from 0.375 µm to 1.875 µm in 0.375 µm increments across five iterations. A full DC sweep is performed at each width combination, generating a family of VTC curves for direct comparison.
+
+<img width="534" height="416" alt="image" src="https://github.com/user-attachments/assets/e62bda3f-9b7d-409d-9304-c4484d1d2ecc" />
+
+**Results across all extreme corners:**
+
+<img width="867" height="466" alt="image" src="https://github.com/user-attachments/assets/3ffa0349-9dd2-41a4-b203-58b72549a03a" />
+
+The switching threshold Vm is located by finding where the 45° line (Vin = Vout) intersects the VTC. Under the full width sweep, Vm shifts across a range of roughly **0.2 V to 1.4 V** — a wide span, but one that still preserves correct inversion throughout. The overall VTC shape remains intact at every corner; only the switching point relocates.
+
+<img width="872" height="467" alt="image" src="https://github.com/user-attachments/assets/22fcead8-2649-4c3a-a326-71f2c58e1f04" />
+
+**Noise margin at extreme corners:**
+
+| Margin | Observed value |
+|--------|----------------|
+| NMH (High-level noise margin) | ≈ 0.4 V |
+| NML (Low-level noise margin)  | ≈ 0.3 V |
+
+Both margins remain sufficiently wide to absorb supply noise, ground bounce, and realistic process spread. Logic '0' and logic '1' regions stay clearly defined at every corner, and the inverter correctly rejects noise throughout — confirming that even dramatic device imbalance cannot break the CMOS inverter's fundamental switching function.
 
 ---
 
 ### Lab — Day 5 (Device)
 
-This simulation uses an extremely wide PMOS (w=7) against a minimum-width NMOS (w=0.42) to emulate the **Strong PMOS / Weak NMOS** corner:
+This simulation applies an intentionally oversized PMOS (w=7) against a minimum-width NMOS (w=0.42) to emulate the **Strong PMOS / Weak NMOS** corner, the extreme case where the pull-up network overwhelmingly dominates:
 
 ```spice
 * ─── Model ───────────────────────────────────────────────
@@ -873,10 +960,10 @@ Vin in  0 1.8V
 .end
 ```
 
-![Day 5 Device — NGSpice Terminal](YOUR_IMAGE_URL — friend's image: Day5 device variation NGSpice terminal)
+<img width="780" height="409" alt="image" src="https://github.com/user-attachments/assets/61ce5160-463b-41e6-b6b4-bd1ef1be2386" />
 
-![Day 5 Device — VTC Shifted Right](YOUR_IMAGE_URL — friend's image: Day5 device corner VTC shifted plot)
+The dominant pull-up network shifts the VTC substantially to the right — the input must be driven to a higher voltage before the NMOS can overcome the PMOS and pull the output low. Zooming into the Vout = Vin crossing yields `x0 ≈ y0 ≈ 0.988 V`, confirming Vm ≈ **0.988 V** for this corner.
 
-The heavily oversized PMOS pulls the VTC rightward. Zooming in near the Vout = Vin crossing yields: `x0 ≈ y0 ≈ 0.988 V` — confirming Vm ≈ **0.988 V** for this corner.
+> 💡 **Navigating extreme corners in simulation:** To cover the opposite corner (Weak PMOS / Strong NMOS), simply swap the width values — set PMOS to the minimum (w=0.42) and NMOS to the maximum (w=7). The VTC will mirror-shift leftward, and clicking the Vout = Vin crossing will yield the minimum Vm for this process spread.
 
 ---
