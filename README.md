@@ -659,9 +659,12 @@ On-chip power lines are never perfectly quiet — capacitive and inductive coupl
 
 An ideal inverter would flip instantaneously at exactly Vdd/2, producing a vertical-drop transfer curve with infinite gain. The physically realised characteristic transitions over a finite voltage range, and its slope in this region is the small-signal voltage gain.
 
-![Ideal Inverter Transfer Characteristic](YOUR_IMAGE_URL — friend's image: ideal inverter VTC)
+Ideal inverter VTC:
+<img width="560" height="377" alt="image" src="https://github.com/user-attachments/assets/af6d26ea-25d2-4e18-8222-a86e14366ac9" />
 
-![Real Inverter Transfer Characteristic](YOUR_IMAGE_URL — friend's image: real inverter VTC with finite slope)
+Real inverter VTC with finite slope:
+<img width="285" height="259" alt="image" src="https://github.com/user-attachments/assets/3fb4fa5a-9a9f-4d97-b20c-6d55100b5bc8" />
+
 
 Four boundary voltages extracted from the real VTC define the noise margins:
 
@@ -672,9 +675,8 @@ Four boundary voltages extracted from the real VTC define the noise margins:
 | Vih | Input High | Minimum input reliably decoded as '1' |
 | Voh | Output High | Minimum output still guaranteed to be logic '1' |
 
-![VTC with Noise Margin Bands Marked](YOUR_IMAGE_URL — friend's image: VTC with Vol/Vil/Vih/Voh marked)
+<img width="532" height="329" alt="image" src="https://github.com/user-attachments/assets/2393db2a-e018-4102-8ab4-f9576c6f8d22" />
 
-![Noise Margin Scale Diagram](YOUR_IMAGE_URL — friend's image: NMH and NML bands diagram)
 
 The two margin values are:
 
@@ -683,13 +685,18 @@ NMH = Voh − Vih    ← headroom against noise on a logic '1'
 NML = Vil − Vol    ← headroom against noise on a logic '0'
 ```
 
-![NMH and NML Equations](YOUR_IMAGE_URL — friend's image: NMH NML equations)
+NMH and NML bands diagram:
+
+<img width="532" height="329" alt="image" src="https://github.com/user-attachments/assets/64b1f3a1-3593-4658-887d-a17e75584d90" />
+
+
+<img width="580" height="336" alt="image" src="https://github.com/user-attachments/assets/1f9a3819-03a9-4401-a2d0-53c3c32ff550" />
+
 
 **Noise hazard classification:**
 
-![Noise Bump Severity Levels](YOUR_IMAGE_URL — friend's image: noise bump hazard diagram)
-
 A glitch that stays within NML is absorbed safely — still decoded as '0'. A glitch pushing into the undefined transition band risks a logic error. One crossing the NMH band will definitely be decoded as '1' and represents a failure condition.
+
 
 **Noise margins across PMOS sizing:**
 
@@ -703,7 +710,10 @@ A glitch that stays within NML is absorbed safely — still decoded as '0'. A gl
 
 Widening PMOS raises Voh and thus NMH (stronger pull-up sustains the high output level). At large PMOS ratios NML dips slightly because the relatively weaker NMOS can no longer pull the output firmly to GND. The NMH span of roughly 120 mV across all sizing options sits comfortably within design margins — an explicit demonstration of CMOS inverter robustness.
 
-![Digital vs Analog Operating Zones on VTC](YOUR_IMAGE_URL — friend's image: digital vs analog regions on VTC)
+<img width="508" height="401" alt="image" src="https://github.com/user-attachments/assets/36509f99-569e-4622-804f-044c4bbbd31f" />
+
+<img width="504" height="398" alt="image" src="https://github.com/user-attachments/assets/59eee32c-bf81-4da7-a0f7-8edbae011ae7" />
+
 
 ---
 
@@ -733,9 +743,10 @@ Vin in  0 1.8V
 .end
 ```
 
-![Day 4 — NGSpice Terminal](YOUR_IMAGE_URL — friend's image: Day4 NGSpice terminal output)
+Setting the PMOS-to-NMOS W/L ratio to 2.77 and sweep (Vin) from 0 to 1.8 V in steps of 0.01 V:
 
-![Day 4 — VTC Output for Noise Margin Extraction](YOUR_IMAGE_URL — friend's image: Day4 VTC plot with cursor)
+<img width="655" height="424" alt="image" src="https://github.com/user-attachments/assets/bb10efd5-ea0a-4f9c-9eaf-8282dc8c2253" />
+
 
 **Extracting NMH and NML manually:**
 
