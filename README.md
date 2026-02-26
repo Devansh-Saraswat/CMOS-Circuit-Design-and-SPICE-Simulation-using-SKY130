@@ -483,7 +483,19 @@ A well-structured SPICE netlist for the inverter requires four ingredients:
 
 The standard inverter netlist template used throughout Day 3:
 
-![Inverter SPICE Netlist Reference](YOUR_IMAGE_URL — friend's image: inverter SPICE deck/netlist screenshot)
+<img width="875" height="469" alt="image" src="https://github.com/user-attachments/assets/ed2a0576-e7fd-4ac1-abc2-2b37c8ffa64d" />
+
+<img width="889" height="462" alt="image" src="https://github.com/user-attachments/assets/fe6b4114-d686-4563-8555-63ca1ef525dc" />
+
+The simulation is performed with Wn = Wp = 0.375 µm and Ln = Lp = 0.25 µm, giving an aspect ratio (W/L) of 1.5 for both NMOS and PMOS devices.
+
+<img width="549" height="383" alt="image" src="https://github.com/user-attachments/assets/a32305e6-a472-441c-9d6e-edab590319e5" />
+
+
+The following graph shows the VTC obtained with Wn = 0.375 µm, Wp = 0.9375 µm, and Ln = Lp = 0.25 µm (Wn/Ln = 1.5, Wp/Lp = 2.5). Since the PMOS is 2.5× wider than the NMOS, the switching point shifts due to the stronger pull-up network, affecting the inverter’s transition behavior.
+
+<img width="541" height="400" alt="image" src="https://github.com/user-attachments/assets/a4668b09-7636-4793-883a-f6edfe509012" />
+
 
 ---
 
@@ -515,11 +527,13 @@ Vin in  0 1.8V
 .end
 ```
 
-![Day 3 VTC — NGSpice Terminal](YOUR_IMAGE_URL — friend's image: Day3 VTC DC sweep terminal output)
+<img width="625" height="383" alt="image" src="https://github.com/user-attachments/assets/6a97198c-af59-4a22-b4cd-2e02c9fa637b" />
 
-![Day 3 VTC — Output Waveform](YOUR_IMAGE_URL — friend's image: Day3 VTC Vout vs Vin plot)
 
 > 💡 **Locating Vm:** Zoom into the transition region where Vout ≈ Vin. Click at the Vout = Vin crossing — because Vm lies precisely on the 45° diagonal, the readout satisfies x0 ≈ y0 ≈ Vm.
+
+<img width="625" height="409" alt="image" src="https://github.com/user-attachments/assets/967172a8-7020-4481-8591-e4c8936c95e3" />
+
 
 **Transient Analysis — Propagation Delay:**
 
@@ -544,13 +558,16 @@ Vin in  0 PULSE(0V 1.8V 0 0.1ns 0.1ns 2ns 4ns)
 .end
 ```
 
-![Day 3 Transient — NGSpice Terminal](YOUR_IMAGE_URL — friend's image: Day3 transient simulation terminal)
+<img width="645" height="393" alt="image" src="https://github.com/user-attachments/assets/0cd0097f-94b3-457c-bc1d-80a61853f8ef" />
 
-![Day 3 Transient — Input/Output Waveform](YOUR_IMAGE_URL — friend's image: Day3 transient waveform plot)
 
 **Measuring rise and fall delay:**
 - **Rise delay** — Zoom to the output rising edge near Vdd/2. Record the time difference between the output crossing Vdd/2 upward and the input falling through Vdd/2 downward.
+- Rise delay = 2.482 ns − 2.15 ns = 0.333 ns, and the fall delay is obtained similarly during the falling transition.
 - **Fall delay** — Mirror the same process on the output's falling edge against the input's rising edge.
+- From the transient waveform, the fall delay measured at the 50% level (0.9 V) is calculated as:
+
+Fall Delay = 4.334 ns − 4.050 ns = 0.285 ns
 
 ---
 
@@ -560,17 +577,34 @@ Vm is the gate input voltage at which output equals input — the midpoint of th
 
 At Vm, both PMOS and NMOS are simultaneously in saturation with `Vgs = Vds` for each. KCL at the output node mandates `|IdP| = |IdN|`:
 
-![IdN and IdP Current Balance at Vm](YOUR_IMAGE_URL — friend's image: IdN + IdP = 0 at Vm)
+<img width="822" height="478" alt="image" src="https://github.com/user-attachments/assets/21c74dba-88fe-4fc7-b8b1-4ede136810de" />
 
-![Vm Derivation Equation](YOUR_IMAGE_URL — friend's image: Vm closed-form derivation)
+<img width="410" height="144" alt="image" src="https://github.com/user-attachments/assets/3ca5d177-86d4-4b22-b3c5-fcd7843d1b14" />
+
 
 Solving yields the closed-form expression:
 
-![Vm Closed-Form Formula](YOUR_IMAGE_URL — friend's image: Vm formula result)
+<img width="652" height="183" alt="image" src="https://github.com/user-attachments/assets/5a534c56-6d14-4cd9-af72-45aff6281a31" />
+
+
+<img width="410" height="144" alt="image" src="https://github.com/user-attachments/assets/685eb481-5b93-44e1-bcb6-25126e4c5c79" />
+
 
 Working in reverse — if a target Vm is specified, the required PMOS-to-NMOS width ratio is:
 
-![W/L Ratio for a Target Vm](YOUR_IMAGE_URL — friend's image: W/L ratio equation for target Vm)
+<img width="239" height="205" alt="image" src="https://github.com/user-attachments/assets/9c6d1080-c6df-4774-9c88-3d22aa6f9300" />
+
+
+<img width="875" height="406" alt="image" src="https://github.com/user-attachments/assets/5b330e87-09fa-4aac-8003-7c0ecd304331" />
+
+<img width="861" height="406" alt="image" src="https://github.com/user-attachments/assets/1f1aca40-f7c6-4fd6-b815-26c9dd134980" />
+
+<img width="873" height="405" alt="image" src="https://github.com/user-attachments/assets/41e6dc8f-0364-49c4-a0c0-49e000e1d2c8" />
+
+<img width="868" height="406" alt="image" src="https://github.com/user-attachments/assets/575dfd50-7532-420f-a015-8514e6438249" />
+
+<img width="864" height="391" alt="image" src="https://github.com/user-attachments/assets/28e97906-6c79-40cd-b3c6-c2acfdc1649d" />
+
 
 **Measured results across PMOS widths:**
 
@@ -583,6 +617,35 @@ Working in reverse — if a target Vm is specified, the required PMOS-to-NMOS wi
 | 5× (Wn/Ln) | 37 ps | 88 ps | 1.40 V |
 
 The 2× sizing achieves near-symmetrical rise/fall delays, which is the standard choice for **clock tree buffers and inverters**. Wider PMOS ratios shift Vm further right and imbalance delays — useful in data-path contexts where asymmetric drive strength is acceptable. The intrinsic mobility mismatch (Ron_PMOS ≈ 2.5 × Ron_NMOS) explains why PMOS must be widened to achieve equivalent drive.
+
+
+#### Process Variation & Inverter Robustness
+
+During fabrication, lithographic and etch tolerances introduce small but unavoidable deviations in the drawn W/L of both PMOS and NMOS devices. Despite these dimensional shifts, the CMOS inverter's switching threshold (Vm) remains largely unaffected — a direct consequence of the complementary topology's inherent self-correcting balance between pull-up and pull-down strengths.
+
+This stability is not accidental. As established in the process variation analysis on Day 5, even at the extreme weak/strong corners, Vm shifts only within a narrow window — the inverter continues to switch correctly throughout.
+
+<img width="831" height="271" alt="image" src="https://github.com/user-attachments/assets/522f0a7f-0234-4e4b-b349-852211891efd" />
+
+#### Symmetric Delay Sizing
+
+When the PMOS width is set to approximately **twice** the NMOS width (`(W/L)p ≈ 2 × (W/L)n`), rise and fall propagation delays become nearly equal. This arises directly from the mobility asymmetry:
+```
+Rₒₙ(PMOS) ≈ 2–2.5 × Rₒₙ(NMOS)
+```
+
+Since a wider transistor presents lower on-resistance, oversizing PMOS by a factor of ~2× compensates for its weaker drive strength and brings the charge and discharge times into balance. The **precise** sizing ratio for perfect symmetry is determined through SPICE simulation rather than hand calculation — the exact crossover point where rise delay = fall delay can be read directly off the delay-vs-sizing curve.
+
+---
+
+#### H-Tree Clock Distribution
+
+The **H-Tree** is the standard topology for distributing a clock signal uniformly across a chip. Its recursive, mirror-symmetric branching structure guarantees that every leaf node is reached by an electrically identical path — equal wire length, equal capacitance — minimising **clock skew**.
+
+<img width="903" height="511" alt="image" src="https://github.com/user-attachments/assets/3f6b5130-56ed-48fe-8238-ce7ddd245094" />
+
+<img width="886" height="456" alt="image" src="https://github.com/user-attachments/assets/bb952503-6501-41bc-98f6-c21574a79fdc" />
+
 
 ---
 
