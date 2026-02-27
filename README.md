@@ -1,12 +1,9 @@
-# CMOS Circuit Design & SPICE Simulation — SKY130 Technology
+# CMOS Circuit Design & SPICE Simulation using SKY130 Technology
 
-> A complete 5-day course evaluation covering MOSFET fundamentals, SPICE simulation, and CMOS inverter robustness analysis using the open-source SKY130 PDK.
-
----
 
 ## 📋 Course Overview
 
-This workshop dives into CMOS circuit design and SPICE simulation built on the SKY130 130nm process node, hosted by [VLSI System Design](https://www.vlsisystemdesign.com/). Over five days, the curriculum builds progressively from transistor physics to full inverter robustness analysis.
+This workshop dives into CMOS circuit design and SPICE simulation built on the SKY130 130nm process node, hosted by [VLSI System Design](https://www.vlsisystemdesign.com/). The course curriculum builds progressively from transistor physics to full inverter robustness analysis.
 
 | Day | Topic |
 |-----|-------|
@@ -329,13 +326,15 @@ Vin in  0 1.8V
 
 ## Day 2 — Velocity Saturation & CMOS VTC
 
+Day 2 extends the single-device analysis from Day 1 to two important fronts. The first is the physical behavior of transistors operating in modern sub-250 nm nodes, where the classical long-channel drain current model breaks down and velocity saturation must be accounted for. The second is the inverter itself — how to construct its Voltage Transfer Characteristic analytically by superimposing individual PMOS and NMOS load curves, and what that VTC tells us about switching behavior.
+
+---
+
 ### Short-Channel Effects
 
 **The complete Id–Vds landscape:**
 
-Sweeping Vgs across multiple values produces a family of Id–Vds curves that reveals all operating regions simultaneously. The zero-overdrive trace (Vgs = Vt) sits flat along the x-axis — the device is fully OFF. Higher Vgs traces climb steeply in the linear region, then level off once pinch-off occurs at the saturation boundary.
-
-![Day 2 — Id vs Vds Family of Curves](YOUR_IMAGE_URL — friend's image: Id-vs-Vds all regions/curves)
+Sweeping Vgs across multiple values produces a family of Id–Vds curves that reveals all operating regions simultaneously. The zero-overdrive trace (Vgs = Vt) sits flat along the x-axis — the device is fully off. Higher Vgs traces climb steeply in the linear region, then level off once pinch-off occurs at the saturation boundary. The transition point between linear and saturation shifts rightward as Vgs increases, tracing out the parabolic boundary defined by Vds = Vgs − Vt. This family of curves is the fundamental I–V fingerprint of the MOSFET and the starting point for understanding how velocity saturation deforms it in short-channel devices.
 
 **Velocity saturation in short-channel devices:**
 
@@ -469,9 +468,15 @@ PMOS + NMOS load lines superimposed on same axes:
 Final Vout vs Vin voltage transfer characteristic:
 <img width="902" height="508" alt="image" src="https://github.com/user-attachments/assets/e3aa991d-af08-480b-89f2-9c0afbf4be22" />
 
+The resulting VTC has the characteristic sigmoidal shape: a high output plateau near Vdd when Vin is low, a sharp transition region in the middle, and a low output plateau near GND when Vin is high. The sharpness of the transition region — determined by the voltage gain at the inflection point — sets the inverter's ability to discriminate between logic levels, and directly governs the noise margins that will be analysed in detail on Day 4.
+
 ---
 
 ## Day 3 — Switching Threshold & Transient Analysis
+
+With the CMOS inverter's Voltage Transfer Characteristic established on Day 2, Day 3 focuses on two complementary aspects of inverter performance: the **static switching threshold** (Vm) — the input voltage at which the output equals the input — and the **dynamic propagation delay** measured directly from transient waveforms. Understanding both together is essential, because Vm governs noise immunity and design balance, while propagation delay determines the maximum operating frequency of any logic path the inverter sits in.
+
+---
 
 ### SPICE Deck for the Inverter
 
@@ -500,6 +505,8 @@ The following graph shows the VTC obtained with Wn = 0.375 µm, Wp = 0.9375 µm,
 ---
 
 ### Lab — Day 3
+
+**Objective:** Run a DC sweep to extract the switching threshold Vm from the VTC, then perform a transient simulation to measure rise and fall propagation delays for the same inverter sizing.
 
 **VTC Simulation (DC sweep):**
 
@@ -621,7 +628,7 @@ The 2× sizing achieves near-symmetrical rise/fall delays, which is the standard
 
 #### Process Variation & Inverter Robustness
 
-During fabrication, lithographic and etch tolerances introduce small but unavoidable deviations in the drawn W/L of both PMOS and NMOS devices. Despite these dimensional shifts, the CMOS inverter's switching threshold (Vm) remains largely unaffected — a direct consequence of the complementary topology's inherent self-correcting balance between pull-up and pull-down strengths.
+The switching threshold analysis above assumes perfectly matched drawn dimensions. In practice, lithographic and etch tolerances introduce small but unavoidable deviations in the actual W/L of both PMOS and NMOS devices during fabrication. Despite these dimensional shifts, the CMOS inverter's switching threshold (Vm) remains largely unaffected — a direct consequence of the complementary topology's inherent self-correcting balance between pull-up and pull-down strengths.
 
 This stability is not accidental. As established in the process variation analysis on Day 5, even at the extreme weak/strong corners, Vm shifts only within a narrow window — the inverter continues to switch correctly throughout.
 
@@ -640,7 +647,9 @@ Since a wider transistor presents lower on-resistance, oversizing PMOS by a fact
 
 #### H-Tree Clock Distribution
 
-The **H-Tree** is the standard topology for distributing a clock signal uniformly across a chip. Its recursive, mirror-symmetric branching structure guarantees that every leaf node is reached by an electrically identical path — equal wire length, equal capacitance — minimising **clock skew**.
+One of the most performance-critical applications of the symmetric, delay-balanced inverter (and buffer) designed above is **clock tree synthesis**. In a synchronous chip, every flip-flop must receive the clock edge at the same time — even a few picoseconds of skew can cause setup or hold violations. The **H-Tree** is the standard topology used to meet this requirement.
+
+Its recursive, mirror-symmetric branching structure guarantees that every leaf node is reached by an electrically identical path — equal wire length, equal load capacitance — minimising clock skew. The buffers inserted at every branching node must be delay-matched (Wp ≈ 2× Wn as established in the sizing analysis above) so that the edge propagates with identical rise and fall times at every level of the tree.
 
 <img width="903" height="511" alt="image" src="https://github.com/user-attachments/assets/3f6b5130-56ed-48fe-8238-ce7ddd245094" />
 
@@ -650,6 +659,10 @@ The **H-Tree** is the standard topology for distributing a clock signal uniforml
 ---
 
 ## Day 4 — Noise Margin Robustness
+
+The previous two days established how to design the inverter for a target switching threshold and matched propagation delay. Day 4 asks a different question: once the inverter is operating, how much unwanted voltage disturbance on its input can it absorb before producing a wrong output? This resistance to signal corruption is captured by the **noise margin** — perhaps the most direct single-number measure of a digital gate's robustness.
+
+---
 
 ### Noise Margin Theory
 
@@ -719,6 +732,8 @@ Widening PMOS raises Voh and thus NMH (stronger pull-up sustains the high output
 
 ### Lab — Day 4
 
+**Objective:** Simulate a CMOS inverter with a PMOS-to-NMOS W/L ratio of approximately 2.77 and extract NMH and NML by graphically identifying the unity-gain points (slope = −1) on the VTC.
+
 ```spice
 * ─── Model ───────────────────────────────────────────────
 .param temp=27
@@ -761,6 +776,10 @@ For this run: `x0=0.767, y0=1.714, x1=0.977, y1=0.111` → **NMH = 0.737 V, NML 
 ---
 
 ## Day 5 — Supply & Device Variation
+
+The final day examines the CMOS inverter's robustness against two categories of real-world imperfection that cannot be eliminated in any fabricated chip. The first is **power supply variation**: as Vdd scales with process node, the inverter must continue switching correctly over a wide range of supply voltages, including reduced-voltage operating modes. The second is **manufacturing variation**: lithographic and oxide-growth tolerances shift the physical dimensions and electrical parameters of every device away from their nominal drawn values. Day 5 quantifies both effects and confirms that the CMOS topology withstands them.
+
+---
 
 ### Power Supply Scaling
 
@@ -967,3 +986,32 @@ The dominant pull-up network shifts the VTC substantially to the right — the i
 > 💡 **Navigating extreme corners in simulation:** To cover the opposite corner (Weak PMOS / Strong NMOS), simply swap the width values — set PMOS to the minimum (w=0.42) and NMOS to the maximum (w=7). The VTC will mirror-shift leftward, and clicking the Vout = Vin crossing will yield the minimum Vm for this process spread.
 
 ---
+
+## Conclusion
+
+This five-day course built a complete picture of CMOS inverter behavior from the ground up — starting at the physics of a single NMOS transistor and ending with a quantitative demonstration of inverter robustness across supply voltage and device manufacturing corners.
+
+Day 1 established the foundation: NMOS device structure, threshold voltage physics including the body effect, and the drift current equations governing both the linear and saturation operating regions. SPICE was introduced as the indispensable tool that translates these equations into the timing library values consumed by static timing analysis flows.
+
+Day 2 extended the device model to short-channel transistors operating in the SKY130 130 nm node, where velocity saturation introduces a fourth operating region not present in long-channel theory. The CMOS inverter's Voltage Transfer Characteristic was then constructed analytically by superimposing PMOS and NMOS load curves — connecting individual device I–V behavior to a circuit-level transfer function.
+
+Day 3 brought two important design metrics into focus. The switching threshold Vm was derived analytically and confirmed through DC simulation, with a sizing table showing how the PMOS-to-NMOS width ratio controls both Vm and propagation delay symmetry. The 2× PMOS rule was identified as the practical sizing choice for balanced clock-tree buffers. Transient simulation then directly measured rise and fall delays, grounding the timing discussion in measured waveform numbers rather than approximations.
+
+Day 4 formalized noise margin as the key robustness metric, defining NMH and NML from the unity-gain points of the VTC. The simulation confirmed that noise margins remain healthy across the full range of PMOS sizing examined — a quantitative demonstration that the inverter's switching characteristic is far more resilient to sizing imbalance than intuition might suggest.
+
+Day 5 completed the robustness picture with two stress tests. Power supply scaling from 1.8 V down to 0.8 V showed that the inverter preserves correct switching throughout, and that normalized gain actually improves at lower supply — a counterintuitive but practically valuable result. Device variation analysis swept both etch-induced dimensional shifts and gate-oxide thickness non-uniformity across realistic and extreme corners, confirming that both NMH and NML remain within acceptable limits and that the inverter never loses its fundamental logic function.
+
+Taken together, the course demonstrates that the CMOS inverter's complementary pull-up/pull-down topology is not merely a convenient circuit trick — it is the reason that CMOS logic has remained manufacturable, robust, and scalable across more than four decades of process node advancement.
+
+---
+
+## References
+
+- [SKY130 Circuit Design Workshop — Kunal Ghosh](https://github.com/kunalg123/sky130CircuitDesignWorkshop)
+- [VSD IAT — Online Learning Platform](https://www.vsdiat.com/)
+- [VLSI System Design — CMOS Circuit Design & SPICE Simulation Workshop](https://www.vlsisystemdesign.com/)
+- [VSD Flow — Standard Cell Design Scripts](https://github.com/kunalg123/vsdflow)
+- [ngspice — Open-Source SPICE Simulator](https://ngspice.sourceforge.io/)
+- [VirtualBox — Oracle VM VirtualBox](https://www.virtualbox.org/)
+  
+  ---
