@@ -1008,10 +1008,8 @@ Taken together, the course demonstrates that the CMOS inverter's complementary p
 ## References
 
 - [SKY130 Circuit Design Workshop — Kunal Ghosh](https://github.com/kunalg123/sky130CircuitDesignWorkshop)
-- [VSD IAT — Online Learning Platform](https://www.vsdiat.com/)
 - [VLSI System Design — CMOS Circuit Design & SPICE Simulation Workshop](https://www.vlsisystemdesign.com/)
 - [VSD Flow — Standard Cell Design Scripts](https://github.com/kunalg123/vsdflow)
 - [ngspice — Open-Source SPICE Simulator](https://ngspice.sourceforge.io/)
 - [VirtualBox — Oracle VM VirtualBox](https://www.virtualbox.org/)
-  
-  ---
+---
